@@ -1,0 +1,35 @@
+{{ template "layout.html" . }}
+{{ define "content" }}
+
+						<section id="banner">
+							<div class="inner">
+								<h1>Tom Gilbert's home on the web</h1>
+								<p>Hacker, Photographer, Technology, Car and Drone Enthusiast</p>
+								<ul class="actions">
+									<li><a href="#galleries" class="button alt scrolly big">Continue</a></li>
+								</ul>
+							</div>
+						</section>
+
+					<!-- Gallery -->
+						<section id="galleries">
+
+							<!-- Photo Galleries -->
+								<div class="gallery">
+									<header class="special">
+										<h2>A selection of images</h2>
+									</header>
+									<div class="content">
+										{{ range $index, $image := .Images }}
+											<div class="media">
+												<a href="static/img/fulls/{{ $image.Name }}"><img src="static/img/thumbs/{{ $image.Name }}" alt="" title="{{ $image.Caption }}" /></a>
+											</div>
+										{{ end }}
+
+									</div>
+									<footer>
+										<a href="/gallery" class="button big">Full Gallery</a>
+									</footer>
+								</div>
+						</section>
+{{ end }}

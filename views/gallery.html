@@ -1,0 +1,39 @@
+{{ template "layout.html" . }}
+{{ define "content" }}
+
+<!-- Main -->
+				<section id="main">
+
+					<!-- Header -->
+						<header id="header">
+							<div>A selection of images</div>
+						</header>
+
+					<!-- Gallery -->
+						<section id="galleries">
+
+							<!-- Photo Galleries -->
+								<div class="gallery">
+
+									<!-- Filters -->
+										<header>
+											<h1>Gallery</h1>
+											<ul class="tabs">
+												<li><a href="#" data-tag="all" class="button active">All</a></li>
+												<li><a href="#" data-tag="people" class="button">People</a></li>
+												<li><a href="#" data-tag="place" class="button">Places</a></li>
+												<li><a href="#" data-tag="thing" class="button">Things</a></li>
+											</ul>
+										</header>
+
+										<div class="content">
+											{{ range $index, $image := .Images }}
+												<div class="media all {{ $image.Categories }}">
+													<a href="static/img/fulls/{{ $image.Name }}"><img src="static/img/thumbs/{{ $image.Name }}" alt="{{ $image.Caption }}" title="{{ $image.Caption }}" /></a>
+												</div>
+											{{ end }}
+										</div>
+								</div>
+						</section>
+				</section>
+{{ end }}
