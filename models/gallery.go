@@ -28,7 +28,7 @@ func GetImages(max int) []Image {
 			line := string(c) // categories|caption need to split
 			elements := strings.Split(line, "|")
 			categories = elements[0]
-			caption = elements[1]
+			caption = strings.TrimSpace(elements[1])
 		}
 		files = append(files, Image{Name: name, Caption: caption, Categories: categories})
 		if max > 0 && i >= max-1 {
